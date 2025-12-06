@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "Handout.html",
+    "href": "Handout.html",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "",
+    "text": "Conducting and Presenting Multiple Linear Regression Analysis Using R\n\n\n\nMaria Paula Rojas Conejo\nFresenius University of Applied Science\n\n\n\n\n\n\n\nAuthor Note\nCorrespondence concerning this article should be addressed to Maria Paula Rojas Conejo, Fresenius University of Applied Science, Email: rojas_conejo.maria@stud.hs-fresenius.de\n\n\n\nAbstract\n\n\n\nConducting and Presenting Multiple Linear Regression Analysis Using R"
+  },
+  {
+    "objectID": "Presentation.html#quarto",
+    "href": "Presentation.html#quarto",
+    "title": "Presentation",
+    "section": "Quarto",
+    "text": "Quarto\nQuarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see https://quarto.org/docs/presentations/."
+  },
+  {
+    "objectID": "Presentation.html#bullets",
+    "href": "Presentation.html#bullets",
+    "title": "Presentation",
+    "section": "Bullets",
+    "text": "Bullets\nWhen you click the Render button a document will be generated that includes:\n\nContent authored with markdown\nOutput from executable code"
+  },
+  {
+    "objectID": "Presentation.html#code",
+    "href": "Presentation.html#code",
+    "title": "Presentation",
+    "section": "Code",
+    "text": "Code\nWhen you click the Render button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\n[1] 2"
+  }
+]
