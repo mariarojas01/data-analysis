@@ -1,0 +1,11 @@
+project:
+  type: website
+  output-dir: docs   # required for GitHub Pages
+
+format:
+  apaquarto-html:
+    standalone: true
+  apaquarto-pdf:
+    papersize: A4
+
+editor: visual

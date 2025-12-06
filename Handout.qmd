@@ -1,0 +1,44 @@
+---
+title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
+
+author:
+  - name: "Maria Paula Rojas Conejo"
+    email: rojas_conejo.maria@stud.hs-fresenius.de
+    affiliations: Fresenius University of Applied Science
+    address: 1301 Cecil B. Moore Ave.
+    city: Philadelphia
+    region: PA
+    postal-code: 19122-6091
+    id: temple
+    corresponding: true
+
+abstract: >
+  This document outlines the requirements for successfully contributing to the
+  course through a presentation and a project report. It introduces the process,
+  establishes the standards, and provides tips how students can effectively meet
+  the expectations.
+
+floatsintext: true
+wordcount-banner: true
+
+format:
+  apaquarto-pdf:
+    documentmode: stu
+    course: "Data Science and Data Analytics (WS 2025/26)"
+    professor: "Prof. Dr. Stephan Huber"
+    duedate: '2026-12-10'
+    keep-tex: false
+    fig-align: left
+    geometry: a4paper       # <-- REQUIRED for A4 PDF
+    include-in-header:
+      text: |
+        \linespread{1.5}
+        <!-- This equals 1.5 linespacing in Word -->
+
+  apaquarto-html:
+    toc: true
+    embed-resources: true   # <-- REQUIRED for standalone HTML
+
+reference-location: document
+number-sections: true
+---
