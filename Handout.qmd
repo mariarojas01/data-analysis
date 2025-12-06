@@ -40,6 +40,15 @@ format:
     embed-resources: true   # <-- REQUIRED for standalone HTML
 
 reference-location: document
+bibliography: references.bib
 number-sections: true
 ---
+# What is Multiple Linear Regression?
+
+It is important to first explain what is linear regression I recommend reading @uyanik2013study and the literature cited therein.
+
+@marill2004advanced explains in detail the 
+
+# References
+
 
