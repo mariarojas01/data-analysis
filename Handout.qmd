@@ -68,9 +68,9 @@ According to @ernst2017regression there are 4 assupmtions in the linear regressi
 3.  Homoscedasticity: The errors are expected to have constant variance across all values of the predictors. If the spread of errors changes (heteroscedasticity), the assumption is violated. [@ernst2017regression]
 4.  Independence: Errors must be independent of each other, meaning their covariances are zero. This requires proper random sampling. Residual plots or autocorrelation checks help detect issues. [@ernst2017regression]
 
-## Linear Model or lm() in R?
+## Linear Model or lm() in R
 
-The Linear Model is the main R function used to fit simple linear regression and multiple linear regression as well as ANOVA type models, polynomial regressions and interaction models. The basic sintax is the following:
+The Linear Model is is used to fit linear models, including multivariate ones. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance. The basic sintax is the following:
 
 **Basic Syntax**
 
@@ -118,36 +118,39 @@ model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
 # Basic summary output
 summary(model)
 ```
+
 Output:
 
-- Estimated coefficients (Estimate)
-- Standard errors (Std. Error)
-- t-values and p-values
-- Residual standard error
-- R^2 and adjusted R^2
-- F-statistic for the overall model
+-   Estimated coefficients (Estimate)
+-   Standard errors (Std. Error)
+-   t-values and p-values
+-   Residual standard error
+-   R\^2 and adjusted R\^2
+-   F-statistic for the overall model
 
 At this stage, you have a working model, but it is not yet ready to report. Next you must check whether assumptions are reasonably satisfied.
 
-## Model Diagnostics in R 
+## Model Diagnostics in R
 
 ### Residual plots and normality
+
 ``` r
 # Basic diagnostic plots (4-panel layout)
 par(mfrow = c(2, 2))
 plot(model)
 par(mfrow = c(1, 1))
 ```
+
 Output
 
 ![Rplot01](Rplot01.png){width="60%"}
 
 Key plots:
 
-- Residuals vs Fitted – Should show a roughly random scatter (no strong curve or funnel pattern).
-- Normal Q-Q – Points should follow the diagonal line if residuals are approximately normal.
-- Scale-Location – Checks homoscedasticity (constant spread of residuals).
-- Residuals vs Leverage / Cook’s distance – Highlights influential observations.
+-   Residuals vs Fitted – Should show a roughly random scatter (no strong curve or funnel pattern).
+-   Normal Q-Q – Points should follow the diagonal line if residuals are approximately normal.
+-   Scale-Location – Checks homoscedasticity (constant spread of residuals).
+-   Residuals vs Leverage / Cook’s distance – Highlights influential observations.
 
 ### Checking multicollinearity with VIF
 
@@ -158,11 +161,13 @@ Multicollinearity inflates standard errors and makes individual coefficients uns
 library(car)
 vif(model)
 ```
+
 In this case the VIF for wt is 2.58, for hp is 3.26 and for cyl is 4.75
 
 ## Presenting Multiple Regression Results
 
 The broom package converts R’s model objects (like lm) into tidy data frames, making it easy to create tables and plots of results.
+
 ``` r
 # install.packages("broom")  # run once
 library(broom)
@@ -173,6 +178,7 @@ coef_table
 model_fit <- glance(model)
 model_fit
 ```
+
 ## Visualizing and Communicating Predictions
 
 ``` r
@@ -197,8 +203,9 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
     title = "Observed vs Predicted Fuel Efficiency"
   )
 ```
+
 Output:
 
-![Rplot01](Rplot02.png){width="40%"}
+![Rplot02](Rplot02.png){width="40%"}
 
 # References
