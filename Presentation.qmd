@@ -1,7 +1,6 @@
 ---
 title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
 format: revealjs
-editor: visual
 ---
 
 ## Links
@@ -31,6 +30,7 @@ $$
 7.  Report and interpret results
 
 ## Preparing Data and Fitting the Model in R
+
 ``` r
 # Load data
 data(mtcars)
@@ -42,9 +42,10 @@ cor(mtcars[, c("mpg", "wt", "hp", "cyl")])
 # Simple scatterplot matrix
 pairs(mtcars[, c("mpg", "wt", "hp", "cyl")])
 ```
-* Miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl).
 
-## Output 
+-   Miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl).
+
+## Output
 
 ```{r}
 # Correlation matrix for numerical variables
@@ -61,7 +62,9 @@ model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
 # Basic summary output
 summary(model)
 ```
+
 ## Output
+
 ```{r}
 # Fit the model
 model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
@@ -77,7 +80,9 @@ par(mfrow = c(2, 2))
 plot(model)
 par(mfrow = c(1, 1))
 ```
+
 **Output**
+
 ```{r}
 # Basic diagnostic plots (4-panel layout)
 par(mfrow = c(2, 2))
@@ -101,7 +106,8 @@ library(car)
 vif(model)
 ```
 
-## Presenting Multiple Regression Results 
+## Presenting Multiple Regression Results
+
 The broom package converts R’s model objects into tidy data frames, making it easy to create tables and plots of results.
 
 ``` r
@@ -114,6 +120,7 @@ coef_table
 model_fit <- glance(model)
 model_fit
 ```
+
 ## Output
 
 ```{r}
@@ -128,6 +135,7 @@ model_fit
 ```
 
 ## Visualizing and Communicating Predictions
+
 ``` r
 # Predictions for the observed data
 mtcars$pred_mpg <- predict(model)
