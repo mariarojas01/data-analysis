@@ -1,0 +1,211 @@
+---
+title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
+
+author:
+  - name: "Maria Paula Rojas Conejo"
+    email: rojas_conejo.maria@stud.hs-fresenius.de
+    affiliations: "Fresenius University of Applied Science"
+    address: "1301 Cecil B. Moore Ave."
+    city: "Philadelphia"
+    region: "PA"
+    postal-code: "19122-6091"
+    id: "temple"
+    corresponding: true
+
+abstract: >
+  This document outlines the requirements for successfully contributing to the
+  course through a presentation and a project report. It introduces the process,
+  establishes the standards, and provides tips on how students can effectively
+  meet the expectations.
+
+floatsintext: true
+wordcount-banner: true
+
+format:
+  apaquarto-pdf:
+    documentmode: stu
+    course: "Data Science and Data Analytics (WS 2025/26)"
+    professor: "Prof. Dr. Stephan Huber"
+    duedate: "2026-12-10"
+    keep-tex: false
+    fig-align: left
+    geometry: a4paper
+    include-in-header:
+      text: |
+        \linespread{1.5}
+
+  apaquarto-html:
+    toc: true
+    embed-resources: true
+
+reference-location: document
+bibliography: references.bib
+number-sections: true
+---
+
+# What is Multiple Linear Regression?
+
+The author @uyanik2013study explains that regression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships. Similarly, @marill2004advanced states that multiple linear regression is a generalization of simple linear regression in which more than one predictor variable is included. The formula is the following:
+
+$$
+Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
+$$
+
+**Where:**
+
+-   $Y_i$ — dependent variable\
+-   $b_0$ — intercept\
+-   $b_1 \dots b_n$ — regression coefficients\
+-   $X_{1i} \dots X_{ni}$ — independent variables\
+-   $u_i$ — disturbance error
+
+## Assupmtions
+
+According to @ernst2017regression there are 4 assupmtions in the linear regression model, violating these assumptions can create several kinds of problems. First, the resulting estimates may be biased, meaning they do not,reflect the true population values. Second, the estimators might become inconsistent, so increasing the sample size no longer estimates will approach the true parameters. Third, may lose its efficiency, meaning it can yield less precise estimates. Fourth, hypothesis tests and confidence intervals may become unreliable. Note that these assumptions specifically apply to estimation using the Ordinary Least Squares (OLS) method (a statistical method used to estimate the parameters of a linear regression model by minimizing the sum of the squared differences between the observed and predicted values), which is the default in many statistical software programs.
+
+1.  Linearity: The model assumes a linear and additive relationship between each predictor and the mean of the dependent variable, with errors averaging zero for any combination of predictors. Problems arise if relationships are nonlinear or if measurement error is present. Multicollinearity is not an assumption, but low overlap between predictors is desirable. [@ernst2017regression]
+2.  Normality: The model errors are assumed to follow a normal distribution centered at zero. [@ernst2017regression]
+3.  Homoscedasticity: The errors are expected to have constant variance across all values of the predictors. If the spread of errors changes (heteroscedasticity), the assumption is violated. [@ernst2017regression]
+4.  Independence: Errors must be independent of each other, meaning their covariances are zero. This requires proper random sampling. Residual plots or autocorrelation checks help detect issues. [@ernst2017regression]
+
+## Linear Model or lm() in R
+
+The Linear Model is is used to fit linear models, including multivariate ones. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance. The basic sintax is the following:
+
+**Basic Syntax**
+
+``` r
+model <- lm(formula, data = dataset)
+```
+
+# Steps to do a multiple linear regression analysis
+
+The author @Zaghi2020RegressionGuide explains step by step how to conduct a multiple linear regression.
+
+1.  Define the research question: Specify outcome and predictors based on theory and prior research.
+2.  Prepare and explore the data: Handle missing values, recode variables, explore distributions and correlations
+3.  Fit the initial model with lm()
+4.  Perform diagnostics: Use residual plots, Q-Q plots, and VIF to check assumptions and detect influential points.
+5.  Refine the model if necessary: Consider transformations, adding interaction terms, or simplifying the model when justified.
+6.  Summarize results with broom or similar tools: Generate tidy tables of coefficients and model fit indices.
+7.  Report and interpret results
+
+## Preparing Data and Fitting the Model in R
+
+R uses a concise formula syntax and the function lm() for linear models. Before fitting a model, it is good practice to inspect the data, check for missing values, and explore relationships. Below we use the built-in mtcars dataset to illustrate an MLR where miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl). This is a simple example similar in spirit to many introductory regression tutorials in R
+
+``` r
+# Load data
+data(mtcars)
+# Quick overview
+str(mtcars)
+summary(mtcars)
+# Correlation matrix for numerical variables
+cor(mtcars[, c("mpg", "wt", "hp", "cyl")])
+# Simple scatterplot matrix
+pairs(mtcars[, c("mpg", "wt", "hp", "cyl")])
+```
+
+Output:
+
+![Rplot](Rplot.png){width="60%"}
+
+## Fitting a multiple linear regression with lm()
+
+``` r
+# Fit the model
+model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
+# Basic summary output
+summary(model)
+```
+
+Output:
+
+-   Estimated coefficients (Estimate)
+-   Standard errors (Std. Error)
+-   t-values and p-values
+-   Residual standard error
+-   R\^2 and adjusted R\^2
+-   F-statistic for the overall model
+
+At this stage, you have a working model, but it is not yet ready to report. Next you must check whether assumptions are reasonably satisfied.
+
+## Model Diagnostics in R
+
+### Residual plots and normality
+
+``` r
+# Basic diagnostic plots (4-panel layout)
+par(mfrow = c(2, 2))
+plot(model)
+par(mfrow = c(1, 1))
+```
+
+Output
+
+![Rplot01](Rplot01.png){width="60%"}
+
+Key plots:
+
+-   Residuals vs Fitted – Should show a roughly random scatter (no strong curve or funnel pattern).
+-   Normal Q-Q – Points should follow the diagonal line if residuals are approximately normal.
+-   Scale-Location – Checks homoscedasticity (constant spread of residuals).
+-   Residuals vs Leverage / Cook’s distance – Highlights influential observations.
+
+### Checking multicollinearity with VIF
+
+Multicollinearity inflates standard errors and makes individual coefficients unstable even if the overall model is significant. The variance inflation factor (VIF) is a widely used measure; values above about 5–10 are often flagged as problematic.
+
+``` r
+# install.packages("car")  # run once if not installed
+library(car)
+vif(model)
+```
+
+In this case the VIF for wt is 2.58, for hp is 3.26 and for cyl is 4.75
+
+## Presenting Multiple Regression Results
+
+The broom package converts R’s model objects (like lm) into tidy data frames, making it easy to create tables and plots of results.
+
+``` r
+# install.packages("broom")  # run once
+library(broom)
+# Coefficient-level information
+coef_table <- tidy(model, conf.int = TRUE)
+coef_table
+# Model-level summary (R^2, etc.)
+model_fit <- glance(model)
+model_fit
+```
+
+## Visualizing and Communicating Predictions
+
+``` r
+# Predictions for the observed data
+mtcars$pred_mpg <- predict(model)
+# Create a small new data set for scenario-based predictions
+new_cars <- data.frame(
+  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb
+  hp  = c(100, 150, 200),
+  cyl = c(4, 6, 8)
+)
+predictions <- predict(model, newdata = new_cars, interval = "confidence")
+cbind(new_cars, predictions)
+# install.packages("ggplot2")  # run once
+library(ggplot2)
+ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
+  geom_point() +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+  labs(
+    x = "Predicted MPG",
+    y = "Observed MPG",
+    title = "Observed vs Predicted Fuel Efficiency"
+  )
+```
+
+Output:
+
+![Rplot02](Rplot02.png){width="40%"}
+
+# References

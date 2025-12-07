@@ -1,6 +1,15 @@
 project:
   type: website
-  output-dir: docs   # required for GitHub Pages
+  output-dir: docs
+
+website:
+  title: "Data Analysis Project"
+  navbar:
+    left:
+      - file: index.qmd
+        text: "Handout"
+      - file: Presentation.qmd
+        text: "Presentation"
 
 format:
   apaquarto-html:
