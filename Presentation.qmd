@@ -1,10 +1,6 @@
 ---
 title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
-format:
-  html:
-    toc: true
-    number-sections: true
-
+format: revealjs
 editor: visual
 ---
 

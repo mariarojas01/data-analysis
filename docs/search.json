@@ -49,108 +49,101 @@
     "text": "2.5 Visualizing and Communicating Predictions\n# Predictions for the observed data\nmtcars$pred_mpg &lt;- predict(model)\n# Create a small new data set for scenario-based predictions\nnew_cars &lt;- data.frame(\n  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb\n  hp  = c(100, 150, 200),\n  cyl = c(4, 6, 8)\n)\npredictions &lt;- predict(model, newdata = new_cars, interval = \"confidence\")\ncbind(new_cars, predictions)\n# install.packages(\"ggplot2\")  # run once\nlibrary(ggplot2)\nggplot(mtcars, aes(x = pred_mpg, y = mpg)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, linetype = \"dashed\") +\n  labs(\n    x = \"Predicted MPG\",\n    y = \"Observed MPG\",\n    title = \"Observed vs Predicted Fuel Efficiency\"\n  )\nOutput:\n\n\nRplot02"
   },
   {
-    "objectID": "Presentation.html",
-    "href": "Presentation.html",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "",
-    "text": "Handout (HTML website) https://mariarojas01.github.io/data-analysis\nPresentation (HTML slideshow) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) https://mariarojas01.github.io/data-analysis/Presentation.pdf"
-  },
-  {
     "objectID": "Presentation.html#links",
     "href": "Presentation.html#links",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "",
-    "text": "Handout (HTML website) https://mariarojas01.github.io/data-analysis\nPresentation (HTML slideshow) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) https://mariarojas01.github.io/data-analysis/Presentation.pdf"
+    "section": "Links",
+    "text": "Links\nHandout (HTML website) https://mariarojas01.github.io/data-analysis\nPresentation (HTML slideshow) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) https://mariarojas01.github.io/data-analysis/Presentation.pdf"
   },
   {
     "objectID": "Presentation.html#what-is-multiple-linear-regression",
     "href": "Presentation.html#what-is-multiple-linear-regression",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "2 What is Multiple Linear Regression",
-    "text": "2 What is Multiple Linear Regression\nRegression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.\n\\[\nY_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_n X_{ni} + u_i\n\\]"
+    "section": "What is Multiple Linear Regression",
+    "text": "What is Multiple Linear Regression\nRegression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.\n\\[\nY_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_n X_{ni} + u_i\n\\]"
   },
   {
     "objectID": "Presentation.html#steps-to-do-a-multiple-linear-regression-analysis",
     "href": "Presentation.html#steps-to-do-a-multiple-linear-regression-analysis",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "3 Steps to do a multiple linear regression analysis",
-    "text": "3 Steps to do a multiple linear regression analysis\n\nDefine the research question\nPrepare and explore the data\nFit the initial model with lm()\nPerform diagnostics\nRefine the model if necessary\nSummarize results with broom or similar tools\nReport and interpret results"
+    "section": "Steps to do a multiple linear regression analysis",
+    "text": "Steps to do a multiple linear regression analysis\n\nDefine the research question\nPrepare and explore the data\nFit the initial model with lm()\nPerform diagnostics\nRefine the model if necessary\nSummarize results with broom or similar tools\nReport and interpret results"
   },
   {
     "objectID": "Presentation.html#preparing-data-and-fitting-the-model-in-r",
     "href": "Presentation.html#preparing-data-and-fitting-the-model-in-r",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "4 Preparing Data and Fitting the Model in R",
-    "text": "4 Preparing Data and Fitting the Model in R\n# Load data\ndata(mtcars)\n# Quick overview\nstr(mtcars)\nsummary(mtcars)\n# Correlation matrix for numerical variables\ncor(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n# Simple scatterplot matrix\npairs(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n\nMiles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl)."
+    "section": "Preparing Data and Fitting the Model in R",
+    "text": "Preparing Data and Fitting the Model in R\n# Load data\ndata(mtcars)\n# Quick overview\nstr(mtcars)\nsummary(mtcars)\n# Correlation matrix for numerical variables\ncor(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n# Simple scatterplot matrix\npairs(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n\nMiles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl)."
   },
   {
     "objectID": "Presentation.html#output",
     "href": "Presentation.html#output",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "5 Output",
-    "text": "5 Output\n\n# Correlation matrix for numerical variables\ncor(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n\n           mpg         wt         hp        cyl\nmpg  1.0000000 -0.8676594 -0.7761684 -0.8521620\nwt  -0.8676594  1.0000000  0.6587479  0.7824958\nhp  -0.7761684  0.6587479  1.0000000  0.8324475\ncyl -0.8521620  0.7824958  0.8324475  1.0000000\n\n# Simple scatterplot matrix\npairs(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])"
+    "section": "Output",
+    "text": "Output\n\n\n           mpg         wt         hp        cyl\nmpg  1.0000000 -0.8676594 -0.7761684 -0.8521620\nwt  -0.8676594  1.0000000  0.6587479  0.7824958\nhp  -0.7761684  0.6587479  1.0000000  0.8324475\ncyl -0.8521620  0.7824958  0.8324475  1.0000000"
   },
   {
     "objectID": "Presentation.html#fitting-a-multiple-linear-regression-with-lm",
     "href": "Presentation.html#fitting-a-multiple-linear-regression-with-lm",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "6 Fitting a multiple linear regression with lm()",
-    "text": "6 Fitting a multiple linear regression with lm()\n# Fit the model\nmodel &lt;- lm(mpg ~ wt + hp + cyl, data = mtcars)\n# Basic summary output\nsummary(model)"
+    "section": "Fitting a multiple linear regression with lm()",
+    "text": "Fitting a multiple linear regression with lm()\n# Fit the model\nmodel &lt;- lm(mpg ~ wt + hp + cyl, data = mtcars)\n# Basic summary output\nsummary(model)"
   },
   {
     "objectID": "Presentation.html#output-1",
     "href": "Presentation.html#output-1",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "7 Output",
-    "text": "7 Output\n\n# Fit the model\nmodel &lt;- lm(mpg ~ wt + hp + cyl, data = mtcars)\n# Basic summary output\nsummary(model)\n\n\nCall:\nlm(formula = mpg ~ wt + hp + cyl, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.9290 -1.5598 -0.5311  1.1850  5.8986 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 38.75179    1.78686  21.687  &lt; 2e-16 ***\nwt          -3.16697    0.74058  -4.276 0.000199 ***\nhp          -0.01804    0.01188  -1.519 0.140015    \ncyl         -0.94162    0.55092  -1.709 0.098480 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.512 on 28 degrees of freedom\nMultiple R-squared:  0.8431,    Adjusted R-squared:  0.8263 \nF-statistic: 50.17 on 3 and 28 DF,  p-value: 2.184e-11"
+    "section": "Output",
+    "text": "Output\n\n\n\nCall:\nlm(formula = mpg ~ wt + hp + cyl, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.9290 -1.5598 -0.5311  1.1850  5.8986 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 38.75179    1.78686  21.687  &lt; 2e-16 ***\nwt          -3.16697    0.74058  -4.276 0.000199 ***\nhp          -0.01804    0.01188  -1.519 0.140015    \ncyl         -0.94162    0.55092  -1.709 0.098480 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.512 on 28 degrees of freedom\nMultiple R-squared:  0.8431,    Adjusted R-squared:  0.8263 \nF-statistic: 50.17 on 3 and 28 DF,  p-value: 2.184e-11"
   },
   {
     "objectID": "Presentation.html#model-diagnostics-in-r",
     "href": "Presentation.html#model-diagnostics-in-r",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "8 Model Diagnostics in R",
-    "text": "8 Model Diagnostics in R\n# Basic diagnostic plots (4-panel layout)\npar(mfrow = c(2, 2))\nplot(model)\npar(mfrow = c(1, 1))\nOutput\n\n# Basic diagnostic plots (4-panel layout)\npar(mfrow = c(2, 2))\nplot(model)\n\n\n\n\n\n\n\npar(mfrow = c(1, 1))"
+    "section": "Model Diagnostics in R",
+    "text": "Model Diagnostics in R\n# Basic diagnostic plots (4-panel layout)\npar(mfrow = c(2, 2))\nplot(model)\npar(mfrow = c(1, 1))\nOutput"
   },
   {
     "objectID": "Presentation.html#checking-multicollinearity-with-vif",
     "href": "Presentation.html#checking-multicollinearity-with-vif",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "9 Checking multicollinearity with VIF",
-    "text": "9 Checking multicollinearity with VIF\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)\n\n9.1 Output\n\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\n\nLoading required package: carData\n\nvif(model)\n\n      wt       hp      cyl \n2.580486 3.258481 4.757456"
+    "section": "Checking multicollinearity with VIF",
+    "text": "Checking multicollinearity with VIF\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)\nOutput\n\n\n      wt       hp      cyl \n2.580486 3.258481 4.757456"
   },
   {
     "objectID": "Presentation.html#presenting-multiple-regression-results",
     "href": "Presentation.html#presenting-multiple-regression-results",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "10 Presenting Multiple Regression Results",
-    "text": "10 Presenting Multiple Regression Results\nThe broom package converts R’s model objects into tidy data frames, making it easy to create tables and plots of results.\n# install.packages(\"broom\")  # run once\nlibrary(broom)\n# Coefficient-level information\ncoef_table &lt;- tidy(model, conf.int = TRUE)\ncoef_table\n# Model-level summary (R^2, etc.)\nmodel_fit &lt;- glance(model)\nmodel_fit"
+    "section": "Presenting Multiple Regression Results",
+    "text": "Presenting Multiple Regression Results\nThe broom package converts R’s model objects into tidy data frames, making it easy to create tables and plots of results.\n# install.packages(\"broom\")  # run once\nlibrary(broom)\n# Coefficient-level information\ncoef_table &lt;- tidy(model, conf.int = TRUE)\ncoef_table\n# Model-level summary (R^2, etc.)\nmodel_fit &lt;- glance(model)\nmodel_fit"
   },
   {
     "objectID": "Presentation.html#output-3",
     "href": "Presentation.html#output-3",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "11 Output",
-    "text": "11 Output\n\n# install.packages(\"broom\")  # run once\nlibrary(broom)\n# Coefficient-level information\ncoef_table &lt;- tidy(model, conf.int = TRUE)\ncoef_table\n\n# A tibble: 4 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)  38.8       1.79       21.7  4.80e-19  35.1     42.4    \n2 wt           -3.17      0.741      -4.28 1.99e- 4  -4.68    -1.65   \n3 hp           -0.0180    0.0119     -1.52 1.40e- 1  -0.0424   0.00629\n4 cyl          -0.942     0.551      -1.71 9.85e- 2  -2.07     0.187  \n\n# Model-level summary (R^2, etc.)\nmodel_fit &lt;- glance(model)\nmodel_fit\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.843         0.826  2.51      50.2 2.18e-11     3  -72.7  155.  163.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+    "section": "Output",
+    "text": "Output\n\n\n# A tibble: 4 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)  38.8       1.79       21.7  4.80e-19  35.1     42.4    \n2 wt           -3.17      0.741      -4.28 1.99e- 4  -4.68    -1.65   \n3 hp           -0.0180    0.0119     -1.52 1.40e- 1  -0.0424   0.00629\n4 cyl          -0.942     0.551      -1.71 9.85e- 2  -2.07     0.187  \n\n\n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.843         0.826  2.51      50.2 2.18e-11     3  -72.7  155.  163.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
   },
   {
     "objectID": "Presentation.html#visualizing-and-communicating-predictions",
     "href": "Presentation.html#visualizing-and-communicating-predictions",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "12 Visualizing and Communicating Predictions",
-    "text": "12 Visualizing and Communicating Predictions\n# Predictions for the observed data\nmtcars$pred_mpg &lt;- predict(model)\n# Create a small new data set for scenario-based predictions\nnew_cars &lt;- data.frame(\n  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb\n  hp  = c(100, 150, 200),\n  cyl = c(4, 6, 8)\n)\npredictions &lt;- predict(model, newdata = new_cars, interval = \"confidence\")\ncbind(new_cars, predictions)\n# install.packages(\"ggplot2\")  # run once\nlibrary(ggplot2)\nggplot(mtcars, aes(x = pred_mpg, y = mpg)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, linetype = \"dashed\") +\n  labs(\n    x = \"Predicted MPG\",\n    y = \"Observed MPG\",\n    title = \"Observed vs Predicted Fuel Efficiency\"\n  )"
+    "section": "Visualizing and Communicating Predictions",
+    "text": "Visualizing and Communicating Predictions\n# Predictions for the observed data\nmtcars$pred_mpg &lt;- predict(model)\n# Create a small new data set for scenario-based predictions\nnew_cars &lt;- data.frame(\n  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb\n  hp  = c(100, 150, 200),\n  cyl = c(4, 6, 8)\n)\npredictions &lt;- predict(model, newdata = new_cars, interval = \"confidence\")\ncbind(new_cars, predictions)\n# install.packages(\"ggplot2\")  # run once\nlibrary(ggplot2)\nggplot(mtcars, aes(x = pred_mpg, y = mpg)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, linetype = \"dashed\") +\n  labs(\n    x = \"Predicted MPG\",\n    y = \"Observed MPG\",\n    title = \"Observed vs Predicted Fuel Efficiency\"\n  )"
   },
   {
     "objectID": "Presentation.html#output-4",
     "href": "Presentation.html#output-4",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "13 Output",
-    "text": "13 Output\n\n# Predictions for the observed data\nmtcars$pred_mpg &lt;- predict(model)\n# Create a small new data set for scenario-based predictions\nnew_cars &lt;- data.frame(\n  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb\n  hp  = c(100, 150, 200),\n  cyl = c(4, 6, 8)\n)\npredictions &lt;- predict(model, newdata = new_cars, interval = \"confidence\")\ncbind(new_cars, predictions)\n\n   wt  hp cyl      fit      lwr      upr\n1 2.5 100   4 25.26408 23.67315 26.85500\n2 3.0 150   6 20.89545 19.92960 21.86131\n3 3.5 200   8 16.52683 15.01760 18.03605\n\n# install.packages(\"ggplot2\")  # run once\nlibrary(ggplot2)\nggplot(mtcars, aes(x = pred_mpg, y = mpg)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, linetype = \"dashed\") +\n  labs(\n    x = \"Predicted MPG\",\n    y = \"Observed MPG\",\n    title = \"Observed vs Predicted Fuel Efficiency\"\n  )"
+    "section": "Output",
+    "text": "Output\n\n\n   wt  hp cyl      fit      lwr      upr\n1 2.5 100   4 25.26408 23.67315 26.85500\n2 3.0 150   6 20.89545 19.92960 21.86131\n3 3.5 200   8 16.52683 15.01760 18.03605"
   },
   {
     "objectID": "Presentation.html#exersise",
     "href": "Presentation.html#exersise",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "14 Exersise",
-    "text": "14 Exersise"
+    "section": "Exersise",
+    "text": "Exersise"
   }
 ]
