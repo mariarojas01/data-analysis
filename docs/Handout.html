@@ -4037,7 +4037,7 @@ border-bottom: none;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.pdf"> 
+    <a class="nav-link" href="./index.qmd"> 
 <span class="menu-text">Handout</span></a>
   </li>  
   <li class="nav-item">
@@ -4059,24 +4059,25 @@ border-bottom: none;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-multiple-linear-regression" id="toc-what-is-multiple-linear-regression" class="nav-link active" data-scroll-target="#what-is-multiple-linear-regression"><span class="header-section-number">1</span> What is Multiple Linear Regression?</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#what-is-multiple-linear-regression" id="toc-what-is-multiple-linear-regression" class="nav-link" data-scroll-target="#what-is-multiple-linear-regression"><span class="header-section-number">2</span> What is Multiple Linear Regression?</a>
   <ul class="collapse">
-  <li><a href="#assupmtions" id="toc-assupmtions" class="nav-link" data-scroll-target="#assupmtions"><span class="header-section-number">1.1</span> Assupmtions</a></li>
-  <li><a href="#linear-model-or-lm-in-r" id="toc-linear-model-or-lm-in-r" class="nav-link" data-scroll-target="#linear-model-or-lm-in-r"><span class="header-section-number">1.2</span> Linear Model or lm() in R</a></li>
+  <li><a href="#assupmtions" id="toc-assupmtions" class="nav-link" data-scroll-target="#assupmtions"><span class="header-section-number">2.1</span> Assupmtions</a></li>
+  <li><a href="#linear-model-or-lm-in-r" id="toc-linear-model-or-lm-in-r" class="nav-link" data-scroll-target="#linear-model-or-lm-in-r"><span class="header-section-number">2.2</span> Linear Model or lm() in R</a></li>
   </ul></li>
-  <li><a href="#steps-to-do-a-multiple-linear-regression-analysis" id="toc-steps-to-do-a-multiple-linear-regression-analysis" class="nav-link" data-scroll-target="#steps-to-do-a-multiple-linear-regression-analysis"><span class="header-section-number">2</span> Steps to do a multiple linear regression analysis</a>
+  <li><a href="#steps-to-do-a-multiple-linear-regression-analysis" id="toc-steps-to-do-a-multiple-linear-regression-analysis" class="nav-link" data-scroll-target="#steps-to-do-a-multiple-linear-regression-analysis"><span class="header-section-number">3</span> Steps to do a multiple linear regression analysis</a>
   <ul class="collapse">
-  <li><a href="#preparing-data-and-fitting-the-model-in-r" id="toc-preparing-data-and-fitting-the-model-in-r" class="nav-link" data-scroll-target="#preparing-data-and-fitting-the-model-in-r"><span class="header-section-number">2.1</span> Preparing Data and Fitting the Model in R</a></li>
-  <li><a href="#fitting-a-multiple-linear-regression-with-lm" id="toc-fitting-a-multiple-linear-regression-with-lm" class="nav-link" data-scroll-target="#fitting-a-multiple-linear-regression-with-lm"><span class="header-section-number">2.2</span> Fitting a multiple linear regression with lm()</a></li>
-  <li><a href="#model-diagnostics-in-r" id="toc-model-diagnostics-in-r" class="nav-link" data-scroll-target="#model-diagnostics-in-r"><span class="header-section-number">2.3</span> Model Diagnostics in R</a>
+  <li><a href="#preparing-data-and-fitting-the-model-in-r" id="toc-preparing-data-and-fitting-the-model-in-r" class="nav-link" data-scroll-target="#preparing-data-and-fitting-the-model-in-r"><span class="header-section-number">3.1</span> Preparing Data and Fitting the Model in R</a></li>
+  <li><a href="#fitting-a-multiple-linear-regression-with-lm" id="toc-fitting-a-multiple-linear-regression-with-lm" class="nav-link" data-scroll-target="#fitting-a-multiple-linear-regression-with-lm"><span class="header-section-number">3.2</span> Fitting a multiple linear regression with lm()</a></li>
+  <li><a href="#model-diagnostics-in-r" id="toc-model-diagnostics-in-r" class="nav-link" data-scroll-target="#model-diagnostics-in-r"><span class="header-section-number">3.3</span> Model Diagnostics in R</a>
   <ul class="collapse">
-  <li><a href="#residual-plots-and-normality" id="toc-residual-plots-and-normality" class="nav-link" data-scroll-target="#residual-plots-and-normality"><span class="header-section-number">2.3.1</span> Residual plots and normality</a></li>
-  <li><a href="#checking-multicollinearity-with-vif" id="toc-checking-multicollinearity-with-vif" class="nav-link" data-scroll-target="#checking-multicollinearity-with-vif"><span class="header-section-number">2.3.2</span> Checking multicollinearity with VIF</a></li>
+  <li><a href="#residual-plots-and-normality" id="toc-residual-plots-and-normality" class="nav-link" data-scroll-target="#residual-plots-and-normality"><span class="header-section-number">3.3.1</span> Residual plots and normality</a></li>
+  <li><a href="#checking-multicollinearity-with-vif" id="toc-checking-multicollinearity-with-vif" class="nav-link" data-scroll-target="#checking-multicollinearity-with-vif"><span class="header-section-number">3.3.2</span> Checking multicollinearity with VIF</a></li>
   </ul></li>
-  <li><a href="#presenting-multiple-regression-results" id="toc-presenting-multiple-regression-results" class="nav-link" data-scroll-target="#presenting-multiple-regression-results"><span class="header-section-number">2.4</span> Presenting Multiple Regression Results</a></li>
-  <li><a href="#visualizing-and-communicating-predictions" id="toc-visualizing-and-communicating-predictions" class="nav-link" data-scroll-target="#visualizing-and-communicating-predictions"><span class="header-section-number">2.5</span> Visualizing and Communicating Predictions</a></li>
+  <li><a href="#presenting-multiple-regression-results" id="toc-presenting-multiple-regression-results" class="nav-link" data-scroll-target="#presenting-multiple-regression-results"><span class="header-section-number">3.4</span> Presenting Multiple Regression Results</a></li>
+  <li><a href="#visualizing-and-communicating-predictions" id="toc-visualizing-and-communicating-predictions" class="nav-link" data-scroll-target="#visualizing-and-communicating-predictions"><span class="header-section-number">3.5</span> Visualizing and Communicating Predictions</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Handout.pdf"><i class="bi bi-file-pdf"></i>PDF (apaquarto)</a></li></ul></div></nav>
 </nav>
@@ -4118,12 +4119,14 @@ border-bottom: none;
 </section>
 <section id="firstheader" class="level1 title unnumbered unlisted">
 <h1 class="title unnumbered unlisted">Conducting and Presenting Multiple Linear Regression Analysis Using R</h1>
-<p>#Introduction</p>
+</section>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>According to <span class="citation" data-cites="alexopoulos2010introduction">Alexopoulos (<a href="#ref-alexopoulos2010introduction" role="doc-biblioref">2010</a>)</span> when it comes to data analysis one of the main goals is to extract from raw information the accurate estimation. One of the common questions in data analysis is the statistical relationship between a response variable (Y) and explanatory variables (Xi). <span class="citation" data-cites="alexopoulos2010introduction">Alexopoulos (<a href="#ref-alexopoulos2010introduction" role="doc-biblioref">2010</a>)</span> continues to explain that an option to answer this question is to employ regression analysis in order to model its relationship.</p>
 <p>In this project we examine the fundamental principles of multiple linear regression, a widely used statistical method as the author mention. At the same time it is intended to clarify how the method works and when it is appropriate to use.</p>
 </section>
-<section id="what-is-multiple-linear-regression" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> What is Multiple Linear Regression?</h1>
+<section id="what-is-multiple-linear-regression" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> What is Multiple Linear Regression?</h1>
 <p>The author <span class="citation" data-cites="uyanik2013study">Uyanık and Güler (<a href="#ref-uyanik2013study" role="doc-biblioref">2013</a>)</span> explains that regression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships. Similarly, <span class="citation" data-cites="marill2004advanced">Marill (<a href="#ref-marill2004advanced" role="doc-biblioref">2004</a>)</span> states that multiple linear regression is a generalization of simple linear regression in which more than one predictor variable is included. The formula is the following:</p>
 <p><span class="math display">
 Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
@@ -4140,25 +4143,25 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 </li>
 <li><span class="math inline">u_i</span> — disturbance error</li>
 </ul>
-<section id="assupmtions" class="level2" data-number="1.1">
-<h2 data-number="1.1" data-anchor-id="assupmtions"><span class="header-section-number">1.1</span> Assupmtions</h2>
+<section id="assupmtions" class="level2" data-number="2.1">
+<h2 data-number="2.1" data-anchor-id="assupmtions"><span class="header-section-number">2.1</span> Assupmtions</h2>
 <p>According to <span class="citation" data-cites="ernst2017regression">Ernst and Albers (<a href="#ref-ernst2017regression" role="doc-biblioref">2017</a>)</span> there are 4 assupmtions in the linear regression model, violating these assumptions can create several kinds of problems. First, the resulting estimates may be biased, meaning they do not,reflect the true population values. Second, the estimators might become inconsistent, so increasing the sample size no longer estimates will approach the true parameters. Third, may lose its efficiency, meaning it can yield less precise estimates. Fourth, hypothesis tests and confidence intervals may become unreliable. Note that these assumptions specifically apply to estimation using the Ordinary Least Squares (OLS) method (a statistical method used to estimate the parameters of a linear regression model by minimizing the sum of the squared differences between the observed and predicted values), which is the default in many statistical software programs.</p>
 <ol type="1">
-<li>Linearity: The model assumes a linear and additive relationship between each predictor and the mean of the dependent variable, with errors averaging zero for any combination of predictors. Problems arise if relationships are nonlinear or if measurement error is present. Multicollinearity is not an assumption, but low overlap between predictors is desirable. <span class="citation" data-cites="ernst2017regression">(<a href="#ref-ernst2017regression" role="doc-biblioref">Ernst &amp; Albers, 2017</a>)</span></li>
+<li>Linearity: The model assumes a linear and additive relationship between each predictor and the mean of the dependent variable, with errors averaging zero for any combination of predictors. Problems arise if relationships are nonlinear or if measurement error is present. Is important to mention that multicollinearity is not an assumption, but low overlap between predictors is desirable. <span class="citation" data-cites="ernst2017regression">(<a href="#ref-ernst2017regression" role="doc-biblioref">Ernst &amp; Albers, 2017</a>)</span></li>
 <li>Normality: The model errors are assumed to follow a normal distribution centered at zero. <span class="citation" data-cites="ernst2017regression">(<a href="#ref-ernst2017regression" role="doc-biblioref">Ernst &amp; Albers, 2017</a>)</span></li>
 <li>Homoscedasticity: The errors are expected to have constant variance across all values of the predictors. If the spread of errors changes (heteroscedasticity), the assumption is violated. <span class="citation" data-cites="ernst2017regression">(<a href="#ref-ernst2017regression" role="doc-biblioref">Ernst &amp; Albers, 2017</a>)</span></li>
 <li>Independence: Errors must be independent of each other, meaning their covariances are zero. This requires proper random sampling. Residual plots or autocorrelation checks help detect issues. <span class="citation" data-cites="ernst2017regression">(<a href="#ref-ernst2017regression" role="doc-biblioref">Ernst &amp; Albers, 2017</a>)</span></li>
 </ol>
 </section>
-<section id="linear-model-or-lm-in-r" class="level2" data-number="1.2">
-<h2 data-number="1.2" data-anchor-id="linear-model-or-lm-in-r"><span class="header-section-number">1.2</span> Linear Model or lm() in R</h2>
+<section id="linear-model-or-lm-in-r" class="level2" data-number="2.2">
+<h2 data-number="2.2" data-anchor-id="linear-model-or-lm-in-r"><span class="header-section-number">2.2</span> Linear Model or lm() in R</h2>
 <p>The Linear Model is is used to fit linear models, including multivariate ones. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance. The basic sintax is the following:</p>
 <p><strong>Basic Syntax</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(formula, <span class="at">data =</span> dataset)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="steps-to-do-a-multiple-linear-regression-analysis" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Steps to do a multiple linear regression analysis</h1>
+<section id="steps-to-do-a-multiple-linear-regression-analysis" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Steps to do a multiple linear regression analysis</h1>
 <p>The author <span class="citation" data-cites="Zaghi2020RegressionGuide">Zaghi (<a href="#ref-Zaghi2020RegressionGuide" role="doc-biblioref">2020</a>)</span> explains step by step how to conduct a multiple linear regression.</p>
 <ol type="1">
 <li>Define the research question: Specify outcome and predictors based on theory and prior research.</li>
@@ -4169,8 +4172,8 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 <li>Summarize results with broom or similar tools: Generate tidy tables of coefficients and model fit indices.</li>
 <li>Report and interpret results</li>
 </ol>
-<section id="preparing-data-and-fitting-the-model-in-r" class="level2" data-number="2.1">
-<h2 data-number="2.1" data-anchor-id="preparing-data-and-fitting-the-model-in-r"><span class="header-section-number">2.1</span> Preparing Data and Fitting the Model in R</h2>
+<section id="preparing-data-and-fitting-the-model-in-r" class="level2" data-number="3.1">
+<h2 data-number="3.1" data-anchor-id="preparing-data-and-fitting-the-model-in-r"><span class="header-section-number">3.1</span> Preparing Data and Fitting the Model in R</h2>
 <p>R uses a concise formula syntax and the function lm() for linear models. Before fitting a model, it is good practice to inspect the data, check for missing values, and explore relationships. Below we use the built-in mtcars dataset to illustrate an MLR where miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl). This is a simple example similar in spirit to many introductory regression tutorials in R</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
@@ -4182,8 +4185,8 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple scatterplot matrix</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(mtcars[, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;cyl&quot;</span>)])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="fitting-a-multiple-linear-regression-with-lm" class="level2" data-number="2.2">
-<h2 data-number="2.2" data-anchor-id="fitting-a-multiple-linear-regression-with-lm"><span class="header-section-number">2.2</span> Fitting a multiple linear regression with lm()</h2>
+<section id="fitting-a-multiple-linear-regression-with-lm" class="level2" data-number="3.2">
+<h2 data-number="3.2" data-anchor-id="fitting-a-multiple-linear-regression-with-lm"><span class="header-section-number">3.2</span> Fitting a multiple linear regression with lm()</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> hp <span class="sc">+</span> cyl, <span class="at">data =</span> mtcars)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic summary output</span></span>
@@ -4199,10 +4202,10 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 </ul>
 <p>At this stage, you have a working model, but it is not yet ready to report. Next you must check whether assumptions are reasonably satisfied.</p>
 </section>
-<section id="model-diagnostics-in-r" class="level2" data-number="2.3">
-<h2 data-number="2.3" data-anchor-id="model-diagnostics-in-r"><span class="header-section-number">2.3</span> Model Diagnostics in R</h2>
-<section id="residual-plots-and-normality" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" data-anchor-id="residual-plots-and-normality"><span class="header-section-number">2.3.1</span> Residual plots and normality</h3>
+<section id="model-diagnostics-in-r" class="level2" data-number="3.3">
+<h2 data-number="3.3" data-anchor-id="model-diagnostics-in-r"><span class="header-section-number">3.3</span> Model Diagnostics in R</h2>
+<section id="residual-plots-and-normality" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" data-anchor-id="residual-plots-and-normality"><span class="header-section-number">3.3.1</span> Residual plots and normality</h3>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic diagnostic plots (4-panel layout)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model)</span>
@@ -4222,8 +4225,8 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 <li>Residuals vs Leverage / Cook’s distance – Highlights influential observations.</li>
 </ul>
 </section>
-<section id="checking-multicollinearity-with-vif" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" data-anchor-id="checking-multicollinearity-with-vif"><span class="header-section-number">2.3.2</span> Checking multicollinearity with VIF</h3>
+<section id="checking-multicollinearity-with-vif" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" data-anchor-id="checking-multicollinearity-with-vif"><span class="header-section-number">3.3.2</span> Checking multicollinearity with VIF</h3>
 <p>Multicollinearity inflates standard errors and makes individual coefficients unstable even if the overall model is significant. The variance inflation factor (VIF) is a widely used measure; values above about 5–10 are often flagged as problematic.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;car&quot;)  # run once if not installed</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
@@ -4231,8 +4234,8 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 <p>In this case the VIF for wt is 2.58, for hp is 3.26 and for cyl is 4.75</p>
 </section>
 </section>
-<section id="presenting-multiple-regression-results" class="level2" data-number="2.4">
-<h2 data-number="2.4" data-anchor-id="presenting-multiple-regression-results"><span class="header-section-number">2.4</span> Presenting Multiple Regression Results</h2>
+<section id="presenting-multiple-regression-results" class="level2" data-number="3.4">
+<h2 data-number="3.4" data-anchor-id="presenting-multiple-regression-results"><span class="header-section-number">3.4</span> Presenting Multiple Regression Results</h2>
 <p>The broom package converts R’s model objects (like lm) into tidy data frames, making it easy to create tables and plots of results.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;broom&quot;)  # run once</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
@@ -4243,8 +4246,8 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> <span class="fu">glance</span>(model)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>model_fit</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="visualizing-and-communicating-predictions" class="level2" data-number="2.5">
-<h2 data-number="2.5" data-anchor-id="visualizing-and-communicating-predictions"><span class="header-section-number">2.5</span> Visualizing and Communicating Predictions</h2>
+<section id="visualizing-and-communicating-predictions" class="level2" data-number="3.5">
+<h2 data-number="3.5" data-anchor-id="visualizing-and-communicating-predictions"><span class="header-section-number">3.5</span> Visualizing and Communicating Predictions</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions for the observed data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>pred_mpg <span class="ot">&lt;-</span> <span class="fu">predict</span>(model)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a small new data set for scenario-based predictions</span></span>
@@ -4274,8 +4277,8 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 </div>
 </section>
 </section>
-<section id="references" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> References</h1>
+<section id="references" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-alexopoulos2010introduction" class="csl-entry" role="listitem">
 Alexopoulos, E. C. (2010). Introduction to multivariate regression analysis. <em>Hippokratia</em>, <em>14</em>(Suppl 1), 23.
