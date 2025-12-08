@@ -2,7 +2,7 @@
 title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
 
 author:
-  - name: "Maria Paula Rojas Conejo"
+  - name: "Maria Paula Rojas Conejo 400"
     email: rojas_conejo.maria@stud.hs-fresenius.de
     affiliations: "Fresenius University of Applied Science"
     address: "1301 Cecil B. Moore Ave."
@@ -42,6 +42,11 @@ reference-location: document
 bibliography: references.bib
 number-sections: true
 ---
+#Introduction
+
+According to @alexopoulos2010introduction when it comes to data analysis one of the main goals is to extract from raw information the accurate estimation. One of the common questions in data analysis is the statistical relationship between a response variable (Y) and explanatory variables (Xi). @alexopoulos2010introduction continues to explain that an option to answer this question is to employ regression analysis in order to model its relationship. 
+
+In this project we examine the fundamental principles and applications of multiple linear regression, a widely used statistical method.
 
 # What is Multiple Linear Regression?
 
@@ -105,10 +110,6 @@ cor(mtcars[, c("mpg", "wt", "hp", "cyl")])
 # Simple scatterplot matrix
 pairs(mtcars[, c("mpg", "wt", "hp", "cyl")])
 ```
-
-Output:
-
-![Rplot](Rplot.png){width="60%"}
 
 ## Fitting a multiple linear regression with lm()
 
