@@ -2,13 +2,13 @@
 title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
 format: revealjs
 ---
+Presentation by Maria Rojas 400962585
 
 ## Links
 
 Handout (HTML website) <https://mariarojas01.github.io/data-analysis>
 
 Presentation (HTML) <https://mariarojas01.github.io/data-analysis/Presentation.html>
-
 
 ## What is Multiple Linear Regression
 
@@ -17,6 +17,32 @@ Regression analysis is used to determine the relationships between two or more v
 $$
 Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 $$
+
+**Basic Syntax in R**
+``` r
+model <- lm(formula, data = dataset)
+```
+
+## Usefull aplications
+
+-   Business: Demand forcasting, finantial risk modeling, market research, etc.
+
+-   Social sciences and psychology: explore how variables such as education, income, and demographics influence life satisfaction.
+
+-   In medicine: predict patient outcomes from characteristics such as age, BMI, and biomarkers.
+
+-   Machine learning and data science: serves both as a baseline predictive model for continuous outcomes and as a tool for feature importance analysis.
+
+## Assupmtions
+
+1.  Linearity: The model assumes a linear and additive relationship between each predictor.
+2.  Normality: The model errors are assumed to follow a normal distribution centered at zero.
+3.  Homoscedasticity: The errors are expected to have constant variance across all values of the predictors.
+4.  Independence: Errors must be independent of each other, meaning their co variances are zero.
+
+## Multicollinearity
+
+It occurs when two or more predictor variables are highly correlated, which leads to an increase in the standard errors of the estimated coefficients.
 
 ## Steps to do a multiple linear regression analysis
 
@@ -34,26 +60,22 @@ $$
 # Load data
 data(mtcars)
 # Quick overview
-str(mtcars)
 summary(mtcars)
-# Correlation matrix for numerical variables
-cor(mtcars[, c("mpg", "wt", "hp", "cyl")])
-# Simple scatterplot matrix
-pairs(mtcars[, c("mpg", "wt", "hp", "cyl")])
+
 ```
 
--   Miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl).
-
-## Output
 
 ```{r}
-# Correlation matrix for numerical variables
-cor(mtcars[, c("mpg", "wt", "hp", "cyl")])
-# Simple scatterplot matrix
-pairs(mtcars[, c("mpg", "wt", "hp", "cyl")])
+# Load data
+data(mtcars)
+# Quick overview
+summary(mtcars)
 ```
 
 ## Fitting a multiple linear regression with lm()
+
+Miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl).
+
 
 ``` r
 # Fit the model
@@ -61,7 +83,6 @@ model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
 # Basic summary output
 summary(model)
 ```
-
 ## Output
 
 ```{r}
@@ -80,8 +101,6 @@ plot(model)
 par(mfrow = c(1, 1))
 ```
 
-**Output**
-
 ```{r}
 # Basic diagnostic plots (4-panel layout)
 par(mfrow = c(2, 2))
@@ -90,6 +109,7 @@ par(mfrow = c(1, 1))
 ```
 
 ## Checking multicollinearity with VIF
+Values above about 5 are often flagged as problematic.
 
 ``` r
 # install.packages("car")  # run once if not installed
@@ -97,7 +117,6 @@ library(car)
 vif(model)
 ```
 
-### Output
 
 ```{r}
 # install.packages("car")  # run once if not installed
@@ -105,49 +124,61 @@ library(car)
 vif(model)
 ```
 
-## Presenting Multiple Regression Results
-
-The broom package converts R’s model objects into tidy data frames, making it easy to create tables and plots of results.
-
-``` r
-# install.packages("broom")  # run once
-library(broom)
-# Coefficient-level information
-coef_table <- tidy(model, conf.int = TRUE)
-coef_table
-# Model-level summary (R^2, etc.)
-model_fit <- glance(model)
-model_fit
-```
-
-## Output
-
-```{r}
-# install.packages("broom")  # run once
-library(broom)
-# Coefficient-level information
-coef_table <- tidy(model, conf.int = TRUE)
-coef_table
-# Model-level summary (R^2, etc.)
-model_fit <- glance(model)
-model_fit
-```
-
-## Visualizing and Communicating Predictions
+## Creating predictions
 
 ``` r
 # Predictions for the observed data
 mtcars$pred_mpg <- predict(model)
+
 # Create a small new data set for scenario-based predictions
 new_cars <- data.frame(
-  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb
+  wt  = c(2.5, 3.0, 3.5), 
   hp  = c(100, 150, 200),
   cyl = c(4, 6, 8)
 )
-predictions <- predict(model, newdata = new_cars, interval = "confidence")
-cbind(new_cars, predictions)
+
+predictions<- predict(model, newdata = new_cars)
+
+cbind(new_cars, predictions) # column bind
+```
+
+```{r}
+# Predictions for the observed data
+mtcars$pred_mpg <- predict(model)
+
+# Create a small new data set for scenario-based predictions
+new_cars <- data.frame(
+  wt  = c(2.5, 3.0, 3.5), 
+  hp  = c(100, 150, 200),
+  cyl = c(4, 6, 8)
+)
+
+predictions<- predict(model, newdata = new_cars)
+
+cbind(new_cars, predictions) #column bind
+```
+
+## Present predictions
+
+``` r
 # install.packages("ggplot2")  # run once
 library(ggplot2)
+
+ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
+  geom_point() +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+  labs(
+    x = "Predicted MPG",
+    y = "Observed MPG",
+    title = "Observed vs Predicted Fuel Efficiency"
+  )
+```
+## Output
+
+``` {r}
+# install.packages("ggplot2")  # run once
+library(ggplot2)
+
 ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
   geom_point() +
   geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
@@ -158,31 +189,65 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
   )
 ```
 
-## Output
+## Exercise
 
-```{r}
-# Predictions for the observed data
-mtcars$pred_mpg <- predict(model)
-# Create a small new data set for scenario-based predictions
-new_cars <- data.frame(
-  wt  = c(2.5, 3.0, 3.5),  # in 1000 lb
-  hp  = c(100, 150, 200),
-  cyl = c(4, 6, 8)
+A small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²
+``` r
+sales_data <- data.frame(
+  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),
+  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),
+  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)
 )
-predictions <- predict(model, newdata = new_cars, interval = "confidence")
-cbind(new_cars, predictions)
-# install.packages("ggplot2")  # run once
-library(ggplot2)
-ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
-  geom_point() +
-  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
-  labs(
-    x = "Predicted MPG",
-    y = "Observed MPG",
-    title = "Observed vs Predicted Fuel Efficiency"
-  )
 ```
 
-## Exersise
+## Solution
 
-Is the following hello
+``` r
+# 1. Fit a multiple linear regression model
+
+model <- lm(Sales ~ Advertising + StoreSize, data = sales_data)
+
+# 2. Show model summary
+
+summary(model)
+
+# 3. Predict sales for a new store
+
+new_store <- data.frame(
+  Advertising = 28,
+  StoreSize = 185
+)
+
+predicted_sales <- predict(model, newdata = new_store)
+predicted_sales
+```
+
+## Solution
+
+```{r}
+# 1. Create a custom dataset
+sales_data <- data.frame(
+  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),
+  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),
+  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)
+)
+
+# 2. Fit a multiple linear regression model
+
+model <- lm(Sales ~ Advertising + StoreSize, data = sales_data)
+
+# 3. Show model summary
+
+summary(model)
+
+# 4. Predict sales for a new store
+
+new_store <- data.frame(
+  Advertising = 28,
+  StoreSize = 185
+)
+
+predicted_sales <- predict(model, newdata = new_store)
+predicted_sales
+
+```
