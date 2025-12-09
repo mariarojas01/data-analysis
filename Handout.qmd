@@ -50,8 +50,9 @@ Word count: {{wordcount}}
 
 According to @alexopoulos2010introduction when it comes to data analysis one of the main goals is to extract from raw information the accurate estimation. One of the common questions in data analysis is the statistical relationship between a response variable (Y) and explanatory variables (Xi). @alexopoulos2010introduction continues to explain that an option to answer this question is to employ regression analysis in order to model its relationship. 
 In this project we examine the fundamental principles of multiple linear regression, a widely used statistical method as the author mention. At the same time it is intended to clarify how the method works and when it is appropriate to use. 
-## Hello
+
 # What is Multiple Linear Regression?
+##Hello 
 
 The author @uyanik2013study explains that regression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships. Similarly, @marill2004advanced states that multiple linear regression is a generalization of simple linear regression in which more than one predictor variable is included. The formula is the following:
 
