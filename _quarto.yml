@@ -6,7 +6,7 @@ website:
   title: "Data Analysis Project"
   navbar:
     left:
-      - file: index.qmd
+      - file: Handout.qmd
         text: "Handout"
       - file: Presentation.qmd
         text: "Presentation"
