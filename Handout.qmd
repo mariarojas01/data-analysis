@@ -12,15 +12,16 @@ author:
     id: "temple"
     corresponding: true
 
-
-abstract: "This document outlines the requirements for successfully contributing to the course through a presentation and a project report. It introduces the process, establishes the standards, and provides tips how students can effectively meet the expectations."
-
+abstract: >
+  This document outlines the requirements for successfully contributing to the course 
+  through a presentation and a project report. It introduces the process, establishes 
+  the standards, and provides tips how students can effectively meet the expectations.
 
 floatsintext: true
 wordcount-banner: true
 filters:
   - wordcount
-  
+
 format:
   apaquarto-pdf:
     documentmode: stu
@@ -36,16 +37,13 @@ format:
 
   apaquarto-html:
     toc: true
-  
-Format:
-  html:
     embed-resources: true
-   
 
 reference-location: document
 bibliography: references.bib
 number-sections: true
 ---
+
 
 Word count: {{wordcount}}
 
