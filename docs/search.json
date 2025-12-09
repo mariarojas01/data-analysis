@@ -1,28 +1,28 @@
 [
   {
-    "objectID": "index.html#preparing-data-and-fitting-the-model-in-r",
-    "href": "index.html#preparing-data-and-fitting-the-model-in-r",
+    "objectID": "Handout.html#preparing-data-and-fitting-the-model-in-r",
+    "href": "Handout.html#preparing-data-and-fitting-the-model-in-r",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "6.1 Preparing Data and Fitting the Model in R",
     "text": "6.1 Preparing Data and Fitting the Model in R\nR uses a concise formula syntax and the function lm() for linear models. Before fitting a model, it is good practice to inspect the data, check for missing values, and explore relationships.\n# Load data\ndata(mtcars)\n# Quick overview\nstr(mtcars)\nsummary(mtcars)\n# Correlation matrix for numerical variables\ncor(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n# Simple scatterplot matrix\npairs(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])"
   },
   {
-    "objectID": "index.html#fitting-a-multiple-linear-regression-with-lm",
-    "href": "index.html#fitting-a-multiple-linear-regression-with-lm",
+    "objectID": "Handout.html#fitting-a-multiple-linear-regression-with-lm",
+    "href": "Handout.html#fitting-a-multiple-linear-regression-with-lm",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "6.2 Fitting a multiple linear regression with lm()",
     "text": "6.2 Fitting a multiple linear regression with lm()\n# Fit the model\nmodel &lt;- lm(mpg ~ wt + hp + cyl, data = mtcars)\n# Basic summary output\nsummary(model)\nTo understand the output of this code, we need to understand the following concepts.\n\nResiduals: they are the difference between what the model predicts and what actually happened. Kim (2015) explains that residuals could reveal patterns in the data unexplained by the fitted model.\nIntercept: is the model’s prediction of the outcome when all predictors are 0\nEstimated coefficients (Estimate): This tells you how much the outcome changes when a predictor increases by 1 unit, while the others stay the same.\nt-values and p-values: This is used to test whether the estimate is really different from zero and shows how likely it is that the result is just due to random chance.\nResidual standard error: This is the average size of prediction errors.\nMultiple R-squared: Measures the variation in the dependent variable the model explains.\nF-statistic: The F-test checks if the whole model (all predictors together) is useful.\n\nAt this stage, you have a working model, but it is not yet ready to report. Next you must check whether assumptions are reasonably satisfied."
   },
   {
-    "objectID": "index.html#model-diagnostics-in-r",
-    "href": "index.html#model-diagnostics-in-r",
+    "objectID": "Handout.html#model-diagnostics-in-r",
+    "href": "Handout.html#model-diagnostics-in-r",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "6.3 Model Diagnostics in R",
     "text": "6.3 Model Diagnostics in R\n\n6.3.1 Residual plots and normality\n# Basic diagnostic plots (4-panel layout)\npar(mfrow = c(2, 2))\nplot(model)\npar(mfrow = c(1, 1))\nKey plots:\n\nResiduals vs Fitted (model predicted values): Visualize whether the model is missing any non-linear relationships. When the residuals are evenly scattered around a flat horizontal line with no clear shape or trend, it suggests that the model fits well and that non-linear relationships are unlikely to be a problem. (Kim, 2015)\nNormal Q-Q: This plot shows if residuals are normally distributed. Points should follow the diagonal line if residuals are approximately normal. (Kim, 2015)\nScale-Location: shows if residuals are spread equally along the ranges of predictors. This is how you can check homoscedasticity. It’s good if you see a horizontal line with equally (randomly) spread points.(Kim, 2015)\nResiduals vs Leverage: it spots influential data points—cases that can strongly affect the regression results. The focus is on points that appear in the upper-right or lower-right areas of the plot or fall outside the dashed lines.(Kim, 2015)\n\n\n\n6.3.2 Checking multicollinearity with VIF\nThe variance inflation factor (VIF) is a widely used measure; values above about 5–10 are often flagged as problematic.\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)"
   },
   {
-    "objectID": "index.html#presenting-multiple-regression-results",
-    "href": "index.html#presenting-multiple-regression-results",
+    "objectID": "Handout.html#presenting-multiple-regression-results",
+    "href": "Handout.html#presenting-multiple-regression-results",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "6.4 Presenting Multiple Regression Results",
     "text": "6.4 Presenting Multiple Regression Results\nThe broom package converts R’s model objects (like lm) into tidy data frames, making it easy to create tables and plots of results.\n# install.packages(\"broom\")  # run once\nlibrary(broom)\n# Coefficient-level information\ncoef_table &lt;- tidy(model, conf.int = TRUE)\ncoef_table\n# Model-level summary (R^2, etc.)\nmodel_fit &lt;- glance(model)\nmodel_fit"
@@ -124,33 +124,5 @@
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Exersise",
     "text": "Exersise\nIs the following"
-  },
-  {
-    "objectID": "Handout.html#preparing-data-and-fitting-the-model-in-r",
-    "href": "Handout.html#preparing-data-and-fitting-the-model-in-r",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "6.1 Preparing Data and Fitting the Model in R",
-    "text": "6.1 Preparing Data and Fitting the Model in R\nR uses a concise formula syntax and the function lm() for linear models. Before fitting a model, it is good practice to inspect the data, check for missing values, and explore relationships.\n# Load data\ndata(mtcars)\n# Quick overview\nstr(mtcars)\nsummary(mtcars)\n# Correlation matrix for numerical variables\ncor(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])\n# Simple scatterplot matrix\npairs(mtcars[, c(\"mpg\", \"wt\", \"hp\", \"cyl\")])"
-  },
-  {
-    "objectID": "Handout.html#fitting-a-multiple-linear-regression-with-lm",
-    "href": "Handout.html#fitting-a-multiple-linear-regression-with-lm",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "6.2 Fitting a multiple linear regression with lm()",
-    "text": "6.2 Fitting a multiple linear regression with lm()\n# Fit the model\nmodel &lt;- lm(mpg ~ wt + hp + cyl, data = mtcars)\n# Basic summary output\nsummary(model)\nTo understand the output of this code, we need to understand the following concepts.\n\nResiduals: they are the difference between what the model predicts and what actually happened. Kim (2015) explains that residuals could reveal patterns in the data unexplained by the fitted model.\nIntercept: is the model’s prediction of the outcome when all predictors are 0\nEstimated coefficients (Estimate): This tells you how much the outcome changes when a predictor increases by 1 unit, while the others stay the same.\nt-values and p-values: This is used to test whether the estimate is really different from zero and shows how likely it is that the result is just due to random chance.\nResidual standard error: This is the average size of prediction errors.\nMultiple R-squared: Measures the variation in the dependent variable the model explains.\nF-statistic: The F-test checks if the whole model (all predictors together) is useful.\n\nAt this stage, you have a working model, but it is not yet ready to report. Next you must check whether assumptions are reasonably satisfied."
-  },
-  {
-    "objectID": "Handout.html#model-diagnostics-in-r",
-    "href": "Handout.html#model-diagnostics-in-r",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "6.3 Model Diagnostics in R",
-    "text": "6.3 Model Diagnostics in R\n\n6.3.1 Residual plots and normality\n# Basic diagnostic plots (4-panel layout)\npar(mfrow = c(2, 2))\nplot(model)\npar(mfrow = c(1, 1))\nKey plots:\n\nResiduals vs Fitted (model predicted values): Visualize whether the model is missing any non-linear relationships. When the residuals are evenly scattered around a flat horizontal line with no clear shape or trend, it suggests that the model fits well and that non-linear relationships are unlikely to be a problem. (Kim, 2015)\nNormal Q-Q: This plot shows if residuals are normally distributed. Points should follow the diagonal line if residuals are approximately normal. (Kim, 2015)\nScale-Location: shows if residuals are spread equally along the ranges of predictors. This is how you can check homoscedasticity. It’s good if you see a horizontal line with equally (randomly) spread points.(Kim, 2015)\nResiduals vs Leverage: it spots influential data points—cases that can strongly affect the regression results. The focus is on points that appear in the upper-right or lower-right areas of the plot or fall outside the dashed lines.(Kim, 2015)\n\n\n\n6.3.2 Checking multicollinearity with VIF\nThe variance inflation factor (VIF) is a widely used measure; values above about 5–10 are often flagged as problematic.\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)"
-  },
-  {
-    "objectID": "Handout.html#presenting-multiple-regression-results",
-    "href": "Handout.html#presenting-multiple-regression-results",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "6.4 Presenting Multiple Regression Results",
-    "text": "6.4 Presenting Multiple Regression Results\nThe broom package converts R’s model objects (like lm) into tidy data frames, making it easy to create tables and plots of results.\n# install.packages(\"broom\")  # run once\nlibrary(broom)\n# Coefficient-level information\ncoef_table &lt;- tidy(model, conf.int = TRUE)\ncoef_table\n# Model-level summary (R^2, etc.)\nmodel_fit &lt;- glance(model)\nmodel_fit"
   }
 ]
