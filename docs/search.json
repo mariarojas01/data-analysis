@@ -53,14 +53,7 @@
     "href": "Presentation.html#links",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Links",
-    "text": "Links\nHandout (HTML website) https://mariarojas01.github.io/data-analysis\nPresentation (HTML) https://mariarojas01.github.io/data-analysis/Presentation.html"
-  },
-  {
-    "objectID": "Presentation.html#what-is-multiple-linear-regression",
-    "href": "Presentation.html#what-is-multiple-linear-regression",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "What is Multiple Linear Regression",
-    "text": "What is Multiple Linear Regression\nRegression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.\n\\[\nY_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_n X_{ni} + u_i\n\\]\nBasic Syntax in R\nmodel &lt;- lm(formula, data = dataset)"
+    "text": "Links\nHandout (HTML website) https://mariarojas01.github.io/data-analysis\nPresentation (HTML) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) ## What is Multiple Linear Regression\nRegression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.\n\\[\nY_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_n X_{ni} + u_i\n\\]\nBasic Syntax in R\nmodel &lt;- lm(formula, data = dataset)"
   },
   {
     "objectID": "Presentation.html#usefull-aplications",
