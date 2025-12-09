@@ -44,16 +44,16 @@ reference-location: document
 bibliography: references.bib
 number-sections: true
 ---
-Word count: {{wordcount}} 
+
+Word count: {{wordcount}}
 
 # Introduction
 
-According to @alexopoulos2010introduction when it comes to data analysis one of the main goals is to extract from raw information the accurate estimation. One of the common questions in data analysis is the statistical relationship between a response variable (Y) and explanatory variables (Xi). @alexopoulos2010introduction continues to explain that an option to answer this question is to employ regression analysis in order to model its relationship. 
-In this project we examine the fundamental principles of multiple linear regression, a widely used statistical method as the author mention. At the same time it is intended to clarify how the method works and when it is appropriate to use. 
+According to @alexopoulos2010introduction when it comes to data analysis one of the main goals is to extract from raw information the accurate estimation. One of the common questions in data analysis is the statistical relationship between a response variable (Y) and explanatory variables (Xi). @alexopoulos2010introduction continues to explain that an option to answer this question is to employ regression analysis in order to model its relationship. In this project we examine the fundamental principles of multiple linear regression, a widely used statistical method as the author mention. At the same time it is intended to clarify how the method works and when it is appropriate to use.
 
 # What is Multiple Linear Regression?
 
-##Hello 
+##Hello
 
 The author @uyanik2013study explains that regression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships. Similarly, @marill2004advanced states that multiple linear regression is a generalization of simple linear regression in which more than one predictor variable is included. The formula is the following:
 
@@ -71,7 +71,7 @@ $$
 
 # Usefull aplications
 
-Multiple linear regression is widely applied across numerous fields due to its ability to model relationships between multiple predictors and a continuous outcome. In business and economics for example, it is commonly used for demand forecasting as predicting sales based on factors like price, advertising, etc. As well as for financial risk modeling and market research aimed at identifying the drivers of customer satisfaction or spending. 
+Multiple linear regression is widely applied across numerous fields due to its ability to model relationships between multiple predictors and a continuous outcome. In business and economics for example, it is commonly used for demand forecasting as predicting sales based on factors like price, advertising, etc. As well as for financial risk modeling and market research aimed at identifying the drivers of customer satisfaction or spending.
 
 Moreover, social sciences and psychology rely heavily on multiple regression to explore how variables such as education, income, and demographics influence life satisfaction for example. Another example is to predict academic performance based on study habits and cognitive factors.
 
@@ -88,13 +88,11 @@ According to @ernst2017regression there are 4 assupmtions in the linear regressi
 
 # Multicollinearity
 
-According to @daoud2017multicollinearity multicollinearity occurs when two or more predictor variables are highly correlated, which leads to an increase in the standard errors of the estimated coefficients. When standard errors become inflated, some or all coefficients may no longer appear significantly different from zero, meaning variables that should be statistically meaningful can incorrectly seem insignificant. 
-
+According to @daoud2017multicollinearity multicollinearity occurs when two or more predictor variables are highly correlated, which leads to an increase in the standard errors of the estimated coefficients. When standard errors become inflated, some or all coefficients may no longer appear significantly different from zero, meaning variables that should be statistically meaningful can incorrectly seem insignificant.
 
 # Linear Model or lm() in R
 
-The Linear Model is is used to fit linear models, including multivariate ones. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance. 
-**Basic Syntax**
+The Linear Model is is used to fit linear models, including multivariate ones. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance. **Basic Syntax**
 
 ``` r
 model <- lm(formula, data = dataset)
@@ -102,7 +100,7 @@ model <- lm(formula, data = dataset)
 
 ## Preparing Data and Fitting the Model in R
 
-R uses a concise formula syntax and the function lm() for linear models. Before fitting a model, it is good practice to inspect the data, check for missing values, and explore relationships. 
+R uses a concise formula syntax and the function lm() for linear models. Before fitting a model, it is good practice to inspect the data, check for missing values, and explore relationships.
 
 ``` r
 # Load data
@@ -124,15 +122,16 @@ model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
 # Basic summary output
 summary(model)
 ```
+
 To understand the output of this code, we need to understand the following concepts.
 
-- Residuals: they are the difference between what the model predicts and what actually happened. @kim2015diagnosticplots explains that residuals could reveal patterns in the data unexplained by the fitted model.
-- Intercept: is the model’s prediction of the outcome when all predictors are 0
-- Estimated coefficients (Estimate): This tells you how much the outcome changes when a predictor increases by 1 unit, while the others stay the same.
-- t-values and p-values: This is used to test whether the estimate is really different from zero and shows how likely it is that the result is just due to random chance.
-- Residual standard error: This is the average size of prediction errors.
-- Multiple R-squared: Measures the variation in the dependent variable the model explains.
-- F-statistic: The F-test checks if the whole model (all predictors together) is useful.
+-   Residuals: they are the difference between what the model predicts and what actually happened. @kim2015diagnosticplots explains that residuals could reveal patterns in the data unexplained by the fitted model.
+-   Intercept: is the model’s prediction of the outcome when all predictors are 0
+-   Estimated coefficients (Estimate): This tells you how much the outcome changes when a predictor increases by 1 unit, while the others stay the same.
+-   t-values and p-values: This is used to test whether the estimate is really different from zero and shows how likely it is that the result is just due to random chance.
+-   Residual standard error: This is the average size of prediction errors.
+-   Multiple R-squared: Measures the variation in the dependent variable the model explains.
+-   F-statistic: The F-test checks if the whole model (all predictors together) is useful.
 
 At this stage, you have a working model, but it is not yet ready to report. Next you must check whether assumptions are reasonably satisfied.
 
@@ -152,8 +151,7 @@ par(mfrow = c(1, 1))
 -   Residuals vs Fitted (model predicted values): Visualize whether the model is missing any non-linear relationships. When the residuals are evenly scattered around a flat horizontal line with no clear shape or trend, it suggests that the model fits well and that non-linear relationships are unlikely to be a problem. [@kim2015diagnosticplots]
 -   Normal Q-Q: This plot shows if residuals are normally distributed. Points should follow the diagonal line if residuals are approximately normal. [@kim2015diagnosticplots]
 -   Scale-Location: shows if residuals are spread equally along the ranges of predictors. This is how you can check homoscedasticity. It’s good if you see a horizontal line with equally (randomly) spread points.[@kim2015diagnosticplots]
--   Residuals vs Leverage: it spots influential data points—cases that can strongly affect the regression results. 
-The focus is on points that appear in the upper-right or lower-right areas of the plot or fall outside the dashed lines.[@kim2015diagnosticplots] 
+-   Residuals vs Leverage: it spots influential data points—cases that can strongly affect the regression results. The focus is on points that appear in the upper-right or lower-right areas of the plot or fall outside the dashed lines.[@kim2015diagnosticplots]
 
 ### Checking multicollinearity with VIF
 
@@ -180,17 +178,16 @@ model_fit <- glance(model)
 model_fit
 ```
 
-
 # References
 
 # Affidavit
 
-I hereby affirm that this submitted paper was authored unaided and solely by me. Additionally, no other sources than those in the reference list were used. Parts of this paper, including tables and figures, that have been taken either verbatim or analogously from other works have in each case been properly cited with regard to their origin and authorship. This paper either in parts or in its entirety, be it in the same or similar form, has not been submitted to any other examination board and has not been published.
-I acknowledge that the university may use plagiarism detection software to check my thesis. I agree to cooperate with any investigation of suspected plagiarism and to provide any additional information or evidence requested by the university.
+I hereby affirm that this submitted paper was authored unaided and solely by me. Additionally, no other sources than those in the reference list were used. Parts of this paper, including tables and figures, that have been taken either verbatim or analogously from other works have in each case been properly cited with regard to their origin and authorship. This paper either in parts or in its entirety, be it in the same or similar form, has not been submitted to any other examination board and has not been published. I acknowledge that the university may use plagiarism detection software to check my thesis. I agree to cooperate with any investigation of suspected plagiarism and to provide any additional information or evidence requested by the university.
 
 Checklist:
 
 -   [x] The handout contains 3-5 pages of text.
+
 -   [x] The submission contains the Quarto file of the handout.
 
 -   [x] The submission contains the Quarto file of the presentation.
@@ -214,6 +211,5 @@ Checklist:
 -   [x] The link to the presentation and the handout published on GitHub.
 
 -   [x] In group work,each student’s contribution is clearly defined and individual performance can be assessed using specified sections, page numbers or other objective criteria.
-
 
 Maria Rojas, 10.12.2025, Köln, Germany
