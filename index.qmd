@@ -1,0 +1,9 @@
+---
+title: "Data Analysis Project"
+format: html
+---
+
+```{=html}
+<meta http-equiv="refresh" content="0;URL='Handout.html'" />
+```
+---
