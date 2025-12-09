@@ -7,9 +7,8 @@ format: revealjs
 
 Handout (HTML website) <https://mariarojas01.github.io/data-analysis>
 
-Presentation (HTML slideshow) <https://mariarojas01.github.io/data-analysis/Presentation.html>
+Presentation (HTML) <https://mariarojas01.github.io/data-analysis/Presentation.html>
 
-Presentation (PDF) <https://mariarojas01.github.io/data-analysis/Presentation.pdf>
 
 ## What is Multiple Linear Regression
 
