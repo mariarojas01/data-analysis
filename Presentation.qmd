@@ -186,4 +186,4 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
 
 ## Exersise
 
-Is the followin
+Is the following
