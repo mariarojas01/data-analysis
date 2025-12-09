@@ -9,10 +9,4 @@ website:
       - file: Presentation.qmd
         text: "Presentation"
 
-format:
-  apaquarto-html:
-    standalone: true
-  apaquarto-pdf:
-    papersize: A4
-
 editor: visual
