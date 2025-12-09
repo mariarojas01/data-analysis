@@ -10,6 +10,7 @@ Handout (HTML website) <https://mariarojas01.github.io/data-analysis>
 
 Presentation (HTML) <https://mariarojas01.github.io/data-analysis/Presentation.html>
 
+Presentation (PDF)
 ## What is Multiple Linear Regression
 
 Regression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.
