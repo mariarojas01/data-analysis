@@ -31,16 +31,22 @@ format:
     duedate: "2025-12-10"
     keep-tex: false
     fig-align: left
-    geometry: a4paper
     include-in-header:
       text: |
         \linespread{1.5}
+        <!-- This equals 1.5 linespacing in Word -->
   apaquarto-html:
     toc: true
     embed-resources: true
 
-reference-location: document
+
+a4paper: true
+
+
 bibliography: references.bib
+
+
+reference-location: document
 number-sections: true
 
 ---
