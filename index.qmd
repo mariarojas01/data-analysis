@@ -4,3 +4,6 @@ redirect: Handout.html
 format: html
 filters: []
 ---
+
+This page should automatically redirect.
+---
