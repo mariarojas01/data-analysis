@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Data Analysis Project"
+  navbar:
+    left:
+      - file: Handout.qmd
+        text: "Handout"
+      - file: Presentation.qmd
+        text: "Presentation"
+
+format:
+  apaquarto-html:
+    standalone: true
+  apaquarto-pdf:
+    papersize: A4
+
+editor: visual
+
