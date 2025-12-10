@@ -22,11 +22,11 @@ Presentation by Maria Paula Rojas 400962585
 
 Handout (HTML website) <https://mariarojas01.github.io/data-analysis>
 
-Handout (PDF)
+Handout (PDF) <https://mariarojas01.github.io/data-analysis/Handout.pdf>
 
-Presentation (HTML)
+Presentation (HTML) <https://mariarojas01.github.io/data-analysis/Presentation.html>
 
-Presentation (PDF)
+Presentation (PDF) <https://mariarojas01.github.io/data-analysis/Presentation.pdf>
 
 
 ## What is Multiple Linear Regression
