@@ -1,22 +1,10 @@
 ---
 title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
-format:
-  html:
-    toc: false              # no HTML table of contents
-    number-sections: false  # clean section headers
-    smooth-scroll: true     # nice scrolling
-
-  pdf:
-    prefer-html: true       # ensures it uses the HTML style
-    toc: false              # no PDF table of contents
-    number-sections: false
-    papersize: letter
-    margin: 1in
+subtitle: "Presentation by Maria Paula Rojas — 400962585"
+format: revealjs
 ---
-
-
-
-Presentation by Maria Paula Rojas 400962585
+## Scan the QR here
+![](QR Code.jpeg){width="60%"}
 
 ## Links
 
@@ -40,6 +28,7 @@ Y_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \dots + b_n X_{ni} + u_i
 $$
 
 **Basic Syntax in R**
+
 ``` r
 model <- lm(formula, data = dataset)
 ```
@@ -82,9 +71,7 @@ It occurs when two or more predictor variables are highly correlated, which lead
 data(mtcars)
 # Quick overview
 summary(mtcars)
-
 ```
-
 
 ```{r}
 # Load data
@@ -97,13 +84,13 @@ summary(mtcars)
 
 Miles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl).
 
-
 ``` r
 # Fit the model
 model <- lm(mpg ~ wt + hp + cyl, data = mtcars)
 # Basic summary output
 summary(model)
 ```
+
 ## Output
 
 ```{r}
@@ -130,6 +117,7 @@ par(mfrow = c(1, 1))
 ```
 
 ## Checking multicollinearity with VIF
+
 Values above about 5 are often flagged as problematic.
 
 ``` r
@@ -137,7 +125,6 @@ Values above about 5 are often flagged as problematic.
 library(car)
 vif(model)
 ```
-
 
 ```{r}
 # install.packages("car")  # run once if not installed
@@ -194,9 +181,10 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
     title = "Observed vs Predicted Fuel Efficiency"
   )
 ```
+
 ## Output
 
-``` {r}
+```{r}
 # install.packages("ggplot2")  # run once
 library(ggplot2)
 
@@ -213,6 +201,7 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
 ## Exercise
 
 A small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²
+
 ``` r
 sales_data <- data.frame(
   Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),
@@ -270,5 +259,4 @@ new_store <- data.frame(
 
 predicted_sales <- predict(model, newdata = new_store)
 predicted_sales
-
 ```

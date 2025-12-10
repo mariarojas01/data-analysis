@@ -173,5 +173,131 @@
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Solution",
     "text": "Solution\n\n# 1. Create a custom dataset\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)\n\n# 2. Fit a multiple linear regression model\n\nmodel &lt;- lm(Sales ~ Advertising + StoreSize, data = sales_data)\n\n# 3. Show model summary\n\nsummary(model)\n\n\nCall:\nlm(formula = Sales ~ Advertising + StoreSize, data = sales_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-11.128  -3.776   1.789   5.059  10.146 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept) -65.2644    38.6401  -1.689   0.1351  \nAdvertising   2.7007     3.0055   0.899   0.3987  \nStoreSize     1.4811     0.6555   2.259   0.0584 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.091 on 7 degrees of freedom\nMultiple R-squared:  0.9909,    Adjusted R-squared:  0.9883 \nF-statistic: 381.6 on 2 and 7 DF,  p-value: 7.157e-08\n\n# 4. Predict sales for a new store\n\nnew_store &lt;- data.frame(\n  Advertising = 28,\n  StoreSize = 185\n)\n\npredicted_sales &lt;- predict(model, newdata = new_store)\npredicted_sales\n\n       1 \n284.3602"
+  },
+  {
+    "objectID": "Presentationslides.html#links",
+    "href": "Presentationslides.html#links",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Links",
+    "text": "Links\nGithub repository https://github.com/mariarojas01/data-analysis.git\nHandout (HTML website) https://mariarojas01.github.io/data-analysis\nHandout (PDF) https://mariarojas01.github.io/data-analysis/Handout.pdf\nPresentation (HTML) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) https://mariarojas01.github.io/data-analysis/Presentation.pdf"
+  },
+  {
+    "objectID": "Presentationslides.html#what-is-multiple-linear-regression",
+    "href": "Presentationslides.html#what-is-multiple-linear-regression",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "What is Multiple Linear Regression",
+    "text": "What is Multiple Linear Regression\nRegression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.\n\\[\nY_i = b_0 + b_1 X_{1i} + b_2 X_{2i} + \\dots + b_n X_{ni} + u_i\n\\]\nBasic Syntax in R\nmodel &lt;- lm(formula, data = dataset)"
+  },
+  {
+    "objectID": "Presentationslides.html#usefull-aplications",
+    "href": "Presentationslides.html#usefull-aplications",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Usefull aplications",
+    "text": "Usefull aplications\n\nBusiness: Demand forcasting, finantial risk modeling, market research, etc.\nSocial sciences and psychology: explore how variables such as education, income, and demographics influence life satisfaction.\nIn medicine: predict patient outcomes from characteristics such as age, BMI, and biomarkers.\nMachine learning and data science: serves both as a baseline predictive model for continuous outcomes and as a tool for feature importance analysis."
+  },
+  {
+    "objectID": "Presentationslides.html#assupmtions",
+    "href": "Presentationslides.html#assupmtions",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Assupmtions",
+    "text": "Assupmtions\n\nLinearity: The model assumes a linear and additive relationship between each predictor.\nNormality: The model errors are assumed to follow a normal distribution centered at zero.\nHomoscedasticity: The errors are expected to have constant variance across all values of the predictors.\nIndependence: Errors must be independent of each other, meaning their co variances are zero."
+  },
+  {
+    "objectID": "Presentationslides.html#multicollinearity",
+    "href": "Presentationslides.html#multicollinearity",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Multicollinearity",
+    "text": "Multicollinearity\nIt occurs when two or more predictor variables are highly correlated, which leads to an increase in the standard errors of the estimated coefficients."
+  },
+  {
+    "objectID": "Presentationslides.html#steps-to-do-a-multiple-linear-regression-analysis",
+    "href": "Presentationslides.html#steps-to-do-a-multiple-linear-regression-analysis",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Steps to do a multiple linear regression analysis",
+    "text": "Steps to do a multiple linear regression analysis\n\nDefine the research question\nPrepare and explore the data\nFit the initial model with lm()\nPerform diagnostics\nRefine the model if necessary\nSummarize results with broom or similar tools\nReport and interpret results"
+  },
+  {
+    "objectID": "Presentationslides.html#preparing-data-and-fitting-the-model-in-r",
+    "href": "Presentationslides.html#preparing-data-and-fitting-the-model-in-r",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Preparing Data and Fitting the Model in R",
+    "text": "Preparing Data and Fitting the Model in R\n# Load data\ndata(mtcars)\n# Quick overview\nsummary(mtcars)\n\n\n      mpg             cyl             disp             hp       \n Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  \n 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  \n Median :19.20   Median :6.000   Median :196.3   Median :123.0  \n Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  \n 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  \n Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  \n      drat             wt             qsec             vs        \n Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  \n 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  \n Median :3.695   Median :3.325   Median :17.71   Median :0.0000  \n Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  \n 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  \n Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  \n       am              gear            carb      \n Min.   :0.0000   Min.   :3.000   Min.   :1.000  \n 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  \n Median :0.0000   Median :4.000   Median :2.000  \n Mean   :0.4062   Mean   :3.688   Mean   :2.812  \n 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  \n Max.   :1.0000   Max.   :5.000   Max.   :8.000"
+  },
+  {
+    "objectID": "Presentationslides.html#fitting-a-multiple-linear-regression-with-lm",
+    "href": "Presentationslides.html#fitting-a-multiple-linear-regression-with-lm",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Fitting a multiple linear regression with lm()",
+    "text": "Fitting a multiple linear regression with lm()\nMiles per gallon (mpg) is predicted by weight (wt), horsepower (hp), and number of cylinders (cyl).\n# Fit the model\nmodel &lt;- lm(mpg ~ wt + hp + cyl, data = mtcars)\n# Basic summary output\nsummary(model)"
+  },
+  {
+    "objectID": "Presentationslides.html#output",
+    "href": "Presentationslides.html#output",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Output",
+    "text": "Output\n\n\n\nCall:\nlm(formula = mpg ~ wt + hp + cyl, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.9290 -1.5598 -0.5311  1.1850  5.8986 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 38.75179    1.78686  21.687  &lt; 2e-16 ***\nwt          -3.16697    0.74058  -4.276 0.000199 ***\nhp          -0.01804    0.01188  -1.519 0.140015    \ncyl         -0.94162    0.55092  -1.709 0.098480 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.512 on 28 degrees of freedom\nMultiple R-squared:  0.8431,    Adjusted R-squared:  0.8263 \nF-statistic: 50.17 on 3 and 28 DF,  p-value: 2.184e-11"
+  },
+  {
+    "objectID": "Presentationslides.html#model-diagnostics-in-r",
+    "href": "Presentationslides.html#model-diagnostics-in-r",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Model Diagnostics in R",
+    "text": "Model Diagnostics in R\n# Basic diagnostic plots (4-panel layout)\npar(mfrow = c(2, 2))\nplot(model)\npar(mfrow = c(1, 1))"
+  },
+  {
+    "objectID": "Presentationslides.html#checking-multicollinearity-with-vif",
+    "href": "Presentationslides.html#checking-multicollinearity-with-vif",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Checking multicollinearity with VIF",
+    "text": "Checking multicollinearity with VIF\nValues above about 5 are often flagged as problematic.\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)\n\n\n      wt       hp      cyl \n2.580486 3.258481 4.757456"
+  },
+  {
+    "objectID": "Presentationslides.html#creating-predictions",
+    "href": "Presentationslides.html#creating-predictions",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Creating predictions",
+    "text": "Creating predictions\n# Predictions for the observed data\nmtcars$pred_mpg &lt;- predict(model)\n\n# Create a small new data set for scenario-based predictions\nnew_cars &lt;- data.frame(\n  wt  = c(2.5, 3.0, 3.5), \n  hp  = c(100, 150, 200),\n  cyl = c(4, 6, 8)\n)\n\npredictions&lt;- predict(model, newdata = new_cars)\n\ncbind(new_cars, predictions) # column bind\n\n\n   wt  hp cyl predictions\n1 2.5 100   4    25.26408\n2 3.0 150   6    20.89545\n3 3.5 200   8    16.52683"
+  },
+  {
+    "objectID": "Presentationslides.html#present-predictions",
+    "href": "Presentationslides.html#present-predictions",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Present predictions",
+    "text": "Present predictions\n# install.packages(\"ggplot2\")  # run once\nlibrary(ggplot2)\n\nggplot(mtcars, aes(x = pred_mpg, y = mpg)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, linetype = \"dashed\") +\n  labs(\n    x = \"Predicted MPG\",\n    y = \"Observed MPG\",\n    title = \"Observed vs Predicted Fuel Efficiency\"\n  )"
+  },
+  {
+    "objectID": "Presentationslides.html#output-1",
+    "href": "Presentationslides.html#output-1",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Output",
+    "text": "Output"
+  },
+  {
+    "objectID": "Presentationslides.html#exercise",
+    "href": "Presentationslides.html#exercise",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Exercise",
+    "text": "Exercise\nA small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)"
+  },
+  {
+    "objectID": "Presentationslides.html#solution",
+    "href": "Presentationslides.html#solution",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Solution",
+    "text": "Solution\n# 1. Fit a multiple linear regression model\n\nmodel &lt;- lm(Sales ~ Advertising + StoreSize, data = sales_data)\n\n# 2. Show model summary\n\nsummary(model)\n\n# 3. Predict sales for a new store\n\nnew_store &lt;- data.frame(\n  Advertising = 28,\n  StoreSize = 185\n)\n\npredicted_sales &lt;- predict(model, newdata = new_store)\npredicted_sales"
+  },
+  {
+    "objectID": "Presentationslides.html#solution-1",
+    "href": "Presentationslides.html#solution-1",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Solution",
+    "text": "Solution\n\n\n\nCall:\nlm(formula = Sales ~ Advertising + StoreSize, data = sales_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-11.128  -3.776   1.789   5.059  10.146 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept) -65.2644    38.6401  -1.689   0.1351  \nAdvertising   2.7007     3.0055   0.899   0.3987  \nStoreSize     1.4811     0.6555   2.259   0.0584 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.091 on 7 degrees of freedom\nMultiple R-squared:  0.9909,    Adjusted R-squared:  0.9883 \nF-statistic: 381.6 on 2 and 7 DF,  p-value: 7.157e-08\n\n\n       1 \n284.3602"
+  },
+  {
+    "objectID": "Presentationslides.html#scan-the-qr-here",
+    "href": "Presentationslides.html#scan-the-qr-here",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Scan the QR here",
+    "text": "Scan the QR here"
   }
 ]
