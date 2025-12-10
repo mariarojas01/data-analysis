@@ -14,8 +14,6 @@ format:
     margin: 1in
 ---
 
-
-
 Presentation by Maria Paula Rojas 400962585
 
 ## Links
