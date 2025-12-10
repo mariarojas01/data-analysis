@@ -60,7 +60,7 @@
     "href": "Presentation.html#links",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Links",
-    "text": "Links\nHandout (HTML website) https://mariarojas01.github.io/data-analysis\nHandout (PDF) https://mariarojas01.github.io/data-analysis/Handout.pdf\nPresentation (HTML) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) https://mariarojas01.github.io/data-analysis/Presentation.pdf"
+    "text": "Links\nGithub repository https://github.com/mariarojas01/data-analysis.git\nHandout (HTML website) https://mariarojas01.github.io/data-analysis\nHandout (PDF) https://mariarojas01.github.io/data-analysis/Handout.pdf\nPresentation (HTML) https://mariarojas01.github.io/data-analysis/Presentation.html\nPresentation (PDF) https://mariarojas01.github.io/data-analysis/Presentation.pdf"
   },
   {
     "objectID": "Presentation.html#what-is-multiple-linear-regression",
@@ -173,6 +173,13 @@
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Solution",
     "text": "Solution\n\n# 1. Create a custom dataset\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)\n\n# 2. Fit a multiple linear regression model\n\nmodel &lt;- lm(Sales ~ Advertising + StoreSize, data = sales_data)\n\n# 3. Show model summary\n\nsummary(model)\n\n\nCall:\nlm(formula = Sales ~ Advertising + StoreSize, data = sales_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-11.128  -3.776   1.789   5.059  10.146 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept) -65.2644    38.6401  -1.689   0.1351  \nAdvertising   2.7007     3.0055   0.899   0.3987  \nStoreSize     1.4811     0.6555   2.259   0.0584 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.091 on 7 degrees of freedom\nMultiple R-squared:  0.9909,    Adjusted R-squared:  0.9883 \nF-statistic: 381.6 on 2 and 7 DF,  p-value: 7.157e-08\n\n# 4. Predict sales for a new store\n\nnew_store &lt;- data.frame(\n  Advertising = 28,\n  StoreSize = 185\n)\n\npredicted_sales &lt;- predict(model, newdata = new_store)\npredicted_sales\n\n       1 \n284.3602"
+  },
+  {
+    "objectID": "Presentationslides.html#scan-the-qr-here",
+    "href": "Presentationslides.html#scan-the-qr-here",
+    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
+    "section": "Scan the QR here",
+    "text": "Scan the QR here"
   },
   {
     "objectID": "Presentationslides.html#links",
@@ -292,12 +299,5 @@
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Solution",
     "text": "Solution\n\n\n\nCall:\nlm(formula = Sales ~ Advertising + StoreSize, data = sales_data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-11.128  -3.776   1.789   5.059  10.146 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept) -65.2644    38.6401  -1.689   0.1351  \nAdvertising   2.7007     3.0055   0.899   0.3987  \nStoreSize     1.4811     0.6555   2.259   0.0584 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.091 on 7 degrees of freedom\nMultiple R-squared:  0.9909,    Adjusted R-squared:  0.9883 \nF-statistic: 381.6 on 2 and 7 DF,  p-value: 7.157e-08\n\n\n       1 \n284.3602"
-  },
-  {
-    "objectID": "Presentationslides.html#scan-the-qr-here",
-    "href": "Presentationslides.html#scan-the-qr-here",
-    "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
-    "section": "Scan the QR here",
-    "text": "Scan the QR here"
   }
 ]
