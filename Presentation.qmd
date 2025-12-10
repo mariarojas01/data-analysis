@@ -5,6 +5,7 @@ format:
     toc: false              # no HTML table of contents
     number-sections: false  # clean section headers
     smooth-scroll: true     # nice scrolling
+    embeded-resources: true
 
   pdf:
     prefer-html: true       # ensures it uses the HTML style
