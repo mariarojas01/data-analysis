@@ -136,9 +136,7 @@ library(car)
 vif(model)
 ```
 
-
 ```{r}
-# install.packages("car")  # run once if not installed
 library(car)
 vif(model)
 ```
@@ -210,7 +208,7 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
 
 ## Exercise
 
-A small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²
+A small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 185 m²
 ``` r
 sales_data <- data.frame(
   Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),

@@ -200,7 +200,7 @@ ggplot(mtcars, aes(x = pred_mpg, y = mpg)) +
 
 ## Exercise
 
-A small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²
+A small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 185 m²
 
 ``` r
 sales_data <- data.frame(

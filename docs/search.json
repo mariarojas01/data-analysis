@@ -130,7 +130,7 @@
     "href": "Presentation.html#checking-multicollinearity-with-vif",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Checking multicollinearity with VIF",
-    "text": "Checking multicollinearity with VIF\nValues above about 5 are often flagged as problematic.\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)\n\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\n\nLoading required package: carData\n\nvif(model)\n\n      wt       hp      cyl \n2.580486 3.258481 4.757456"
+    "text": "Checking multicollinearity with VIF\nValues above about 5 are often flagged as problematic.\n# install.packages(\"car\")  # run once if not installed\nlibrary(car)\nvif(model)\n\nlibrary(car)\n\nLoading required package: carData\n\nvif(model)\n\n      wt       hp      cyl \n2.580486 3.258481 4.757456"
   },
   {
     "objectID": "Presentation.html#creating-predictions",
@@ -158,7 +158,7 @@
     "href": "Presentation.html#exercise",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Exercise",
-    "text": "Exercise\nA small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)"
+    "text": "Exercise\nA small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 185 m²\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)"
   },
   {
     "objectID": "Presentation.html#solution",
@@ -284,7 +284,7 @@
     "href": "Presentationslides.html#exercise",
     "title": "Conducting and Presenting Multiple Linear Regression Analysis Using R",
     "section": "Exercise",
-    "text": "Exercise\nA small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 128 m²\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)"
+    "text": "Exercise\nA small company wants to understand how advertising budget and store size affect monthly sales. For this we are running a regression and predict the outcome of a new store with advertising of 28 K EUR and Store size of 185 m²\nsales_data &lt;- data.frame(\n  Sales = c(120, 150, 170, 200, 220, 250, 275, 300, 320, 340),\n  Advertising = c(10, 15, 14, 20, 22, 25, 27, 30, 31, 33),\n  StoreSize = c(100, 120, 130, 150, 160, 170, 180, 190, 200, 210)\n)"
   },
   {
     "objectID": "Presentationslides.html#solution",
