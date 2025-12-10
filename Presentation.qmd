@@ -1,16 +1,34 @@
 ---
 title: "Conducting and Presenting Multiple Linear Regression Analysis Using R"
-format: revealjs
+format:
+  html:
+    toc: false              # no HTML table of contents
+    number-sections: false  # clean section headers
+    smooth-scroll: true     # nice scrolling
+
+  pdf:
+    prefer-html: true       # ensures it uses the HTML style
+    toc: false              # no PDF table of contents
+    number-sections: false
+    papersize: letter
+    margin: 1in
 ---
-Presentation by Maria Rojas 400962585
+
+
+
+Presentation by Maria Paula Rojas 400962585
 
 ## Links
 
 Handout (HTML website) <https://mariarojas01.github.io/data-analysis>
 
-Presentation (HTML) <https://mariarojas01.github.io/data-analysis/Presentation.html>
+Handout (PDF)
+
+Presentation (HTML)
 
 Presentation (PDF)
+
+
 ## What is Multiple Linear Regression
 
 Regression analysis is used to determine the relationships between two or more variables that exhibit cause–effect patterns, and to make predictions based on those relationships.
